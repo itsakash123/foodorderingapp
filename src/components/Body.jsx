@@ -31,6 +31,8 @@ const Body = () => {
   };
 
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser, setUserName } = useContext(userContext);
+
   if (onlineStatus === false)
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -47,8 +49,6 @@ const Body = () => {
         </div>
       </div>
     );
-
-  const { loggedInUser, setUserName } = useContext(userContext);
 
   return ListOfRestaurants.length === 0 ? (
     <Loader />
