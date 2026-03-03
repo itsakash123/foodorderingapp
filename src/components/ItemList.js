@@ -1,52 +1,49 @@
-import { useDispatch  } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
-const ItemList = ({ items }) => {
-const dispatch=useDispatch();
-const handleAddItem=(item)=>{
-  //dispatch an action
-  dispatch(addItem(item))
-}
-  return (
-    <div>
-      {items.map((item) => (
-        <div data-testid="foodItems"
-          key={item.card.info.id}
-          className="p-4 m-2 border-gray-300 text-left border-b-[1px] flex justify-between "
-        >
-          <div className="w-9/12">
-            <div className="py-2">
-              <span className="text-gray-700 text-[17px] font-bold ">
-                {item.card.info.name}
-              </span>
-              <br />
-              <span className="text-gray-700 text-base font-bold">
-                {" "}
-                ₹{item.card.info.price / 100}
-              </span>
-            </div>
+import { Plus } from "lucide-react";
 
-            <p className="text-base font-medium text-gray-700">
-              {item.card.info.description}
-            </p>
+const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
+  return (
+    <div className="divide-y divide-charcoal-100">
+      {items.map((item) => (
+        <div
+          data-testid="foodItems"
+          key={item.card.info.id}
+          className="flex items-start justify-between gap-4 py-5"
+        >
+          <div className="flex-1 min-w-0">
+            <h4 className="font-semibold text-charcoal-900 text-base mb-1">
+              {item.card.info.name}
+            </h4>
+            <span className="text-brand-500 font-bold text-sm">
+              Rs {item.card.info.price / 100}
+            </span>
+            {item.card.info.description && (
+              <p className="text-charcoal-400 text-sm mt-2 leading-relaxed line-clamp-2">
+                {item.card.info.description}
+              </p>
+            )}
           </div>
 
-          <div className="w-3/12 p-4 relative">
-            {/* Image */}
+          <div className="relative flex-shrink-0 w-28">
             <img
-              className="w-full h-32 object-cover rounded-md"
+              className="w-28 h-24 object-cover rounded-xl"
               src={CDN_URL + item.card.info.imageId}
               onError={(e) => (e.target.style.display = "none")}
-              alt=""
+              alt={item.card.info.name}
             />
-
-            {/* ADD Button */}
-            <button className="absolute left-1/2 bottom-1 transform -translate-x-1/2 bg-white text-green-600 text-[17px] font-bold px-9 py-2 rounded-lg shadow-md" 
-            onClick={()=>{
-               
-                 handleAddItem(item)
-               
-            }}>ADD
+            <button
+              className="absolute left-1/2 -bottom-3 -translate-x-1/2 bg-white hover:bg-brand-50 text-brand-500 border border-brand-200 text-sm font-bold px-5 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1"
+              onClick={() => handleAddItem(item)}
+            >
+              <Plus className="w-3.5 h-3.5" />
+              ADD
             </button>
           </div>
         </div>
@@ -54,4 +51,5 @@ const handleAddItem=(item)=>{
     </div>
   );
 };
+
 export default ItemList;

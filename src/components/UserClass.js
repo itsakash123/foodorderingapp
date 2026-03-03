@@ -1,69 +1,47 @@
-//class based component
-
-// React Component is class  is given by react
 import React from "react";
+import { MapPin, AtSign } from "lucide-react";
+
 class UserClass extends React.Component {
   constructor(props) {
-    super(props); // it is used to call the constructor of parent class
-    //this state is a big object which will create all state varibles
+    super(props);
     this.state = {
-      userInfo:{
-        name :"Dummy Name",
-        location:"Default",
-       
-      }
-     
+      userInfo: {
+        name: "Dummy Name",
+        location: "Default",
+      },
     };
-    //console.log(this.props.name + "Constructor");
   }
-  async componentDidMount() { 
-    //console.log(this.props.name + "componentDidMount ");
 
+  async componentDidMount() {
     const data = await fetch("https://api.github.com/users/itsakash123");
-    const json=await data.json();
-    this.setState({
-      userInfo:json,
-    })
-    //console.log(json);
+    const json = await data.json();
+    this.setState({ userInfo: json });
   }
-  componentDidUpdate(){
-    //console.log("component did update")
-  }
-  componentWillUnmount(){
-    //console.log("component will unmount");
 
-  }
+  componentDidUpdate() {}
+  componentWillUnmount() {}
+
   render() {
-     const{name,location,avatar_url}=this.state.userInfo;
-   
-    //console.log(this.props.name + "render");
+    const { name, location, avatar_url } = this.state.userInfo;
     return (
-      <div className="user-card">
-        <img src={avatar_url} alt="" />
-        <h2>{name}</h2>
-        <h3>{location}</h3>
-        <h4>Contact:@akashkumar</h4>
+      <div className="space-y-4">
+        <img
+          src={avatar_url}
+          alt={name}
+          className="w-16 h-16 rounded-full object-cover border-2 border-brand-200"
+        />
+        <h2 className="font-semibold text-charcoal-900 text-lg">{name}</h2>
+        <div className="flex items-center gap-2 text-charcoal-500 text-sm">
+          <MapPin className="w-4 h-4" />
+          <span>{location}</span>
+        </div>
+        <div className="flex items-center gap-2 text-charcoal-500 text-sm">
+          <AtSign className="w-4 h-4" />
+          <span>akashkumar</span>
+        </div>
       </div>
     );
   }
 }
-export default UserClass;
 
-/******
- * 
- * --MOUNTING
- * 
- * constructor
- * render(dummy data)
- * <html dummy>
- * component did mount
- * <API CALL>
- * <this.setState>
- * 
- * 
- * --UPDATE
- * 
- * render(API DATA)
- * <HTML (new Api Data)
- * component did update
- */
+export default UserClass;
