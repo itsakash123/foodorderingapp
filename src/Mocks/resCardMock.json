@@ -1,0 +1,66 @@
+{
+    "id": "474260",
+    "name": "Public Marwah hotel & restaurant",
+    "city": "39",
+    "slugs": {
+        "restaurant": "public-marwah-hotel-&-restaurant-naveen-market-naveen-market",
+        "city": "kanpur"
+    },
+    "cloudinaryImageId": "jgoy7homw6hgkz6cgk9z",
+    "address": "F84X+HVR, Dhana Khori, Mirpur, Kanpur, Uttar Pradesh 208001, India",
+    "locality": "Central Railway Colony",
+    "areaName": "Naveen Market",
+    "costForTwo": "30000",
+    "costForTwoMessage": "₹300 FOR TWO",
+    "cuisines": [
+        "Indian"
+    ],
+    "avgRating": 4,
+    "feeDetails": {},
+    "avgRatingString": "4.0",
+    "totalRatingsString": "240",
+    "sla": {
+        "deliveryTime": 55,
+        "minDeliveryTime": 50,
+        "maxDeliveryTime": 55,
+        "lastMileTravel": 9.8,
+        "serviceability": "SERVICEABLE",
+        "rainMode": "RAIN_MODE_NONE",
+        "slaString": "50-55 MINS",
+        "lastMileTravelString": "9.8 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "opened": true,
+        "restaurantClosedMeta": {}
+    },
+    "badges": {},
+    "aggregatedDiscountInfoV3": {
+        "header": "20% OFF",
+        "subHeader": "UPTO ₹120",
+        "logoCtx": {
+            "text": "BENEFITS"
+        }
+    },
+    "ratingSlab": "RATING_SLAB_4",
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {},
+        "commsStyling": {}
+    },
+    "cartOrderabilityNudgeBanner": {
+        "parameters": {},
+        "presentation": {}
+    },
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    "featuredSectionInfo": {
+        "sectionTitle": "More"
+    }
+}

@@ -1,38 +1,56 @@
 {
   "name": "igniting-our-app",
   "version": "1.0.0",
-  "description": "this is react ",
-   
+  "description": "this is react",
   "scripts": {
-    
-    "start":"parcel index.html",
-    "build":"parcel build index.html",
-    "test": "jest"
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itsakash123/React-JS.git"
   },
-  "keywords": [
-    "react"
-  ],
-  "author": "",
+  "keywords": [],
+  "author": "akash",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/itsakash123/React-JS/issues"
   },
   "homepage": "https://github.com/itsakash123/React-JS#readme",
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@jest/globals": "^29.7.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "autoprefixer": "^10.4.20",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.0.0",
     "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "postcss": "^8.5.2",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17",
+    "util": "^0.12.5",
+    "vite": "^6.2.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
+    "@tailwindcss/postcss": "^4.0.6",
+    "jest-fixed-jsdom": "^0.0.9",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.2.0",
+    "react-router-dom": "^7.2.0"
   },
-  "BrowsersList ":[
-    "Last 2 version"
-    
-
+  "browserslist": [
+    "last 2 versions"
   ]
 }
