@@ -10,6 +10,7 @@ const Body = () => {
   const [ListOfRestaurants, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const RestaurantCardPromoted = withPromotedLabel(ReastaurantCard);
 
@@ -18,16 +19,22 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/search/v3?lat=26.4983962&lng=80.2851556&str=all%20restaurants&trackingId=494733e7-52a0-6bcc-56d8-d2634456c5b9&submitAction=ENTER&queryUniqueId=7637b030-caa2-db2e-bbda-1428ce37468d"
-    );
-    const json = await data.json();
-    setListOfRestaurant(
-      json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
-    );
+    try {
+      const data = await fetch(
+        "/api/swiggy/restaurants/search/v3?lat=26.4983962&lng=80.2851556&str=all%20restaurants&trackingId=494733e7-52a0-6bcc-56d8-d2634456c5b9&submitAction=ENTER&queryUniqueId=7637b030-caa2-db2e-bbda-1428ce37468d"
+      );
+      const json = await data.json();
+      const restaurants =
+        json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards || [];
+      setListOfRestaurant(restaurants);
+      setFilteredRestaurant(restaurants);
+    } catch (err) {
+      console.log("[v0] Fetch error:", err);
+      setListOfRestaurant([]);
+      setFilteredRestaurant([]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onlineStatus = useOnlineStatus();
@@ -50,7 +57,7 @@ const Body = () => {
       </div>
     );
 
-  return ListOfRestaurants.length === 0 ? (
+  return isLoading ? (
     <Loader />
   ) : (
     <div className="bg-cream-50">

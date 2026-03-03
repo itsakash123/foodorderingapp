@@ -21,5 +21,12 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    proxy: {
+      "/api/swiggy": {
+        target: "https://www.swiggy.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/swiggy/, "/dapi"),
+      },
+    },
   },
 });
